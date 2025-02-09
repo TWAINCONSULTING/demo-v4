@@ -45,7 +45,7 @@ export function BoardMessage({ pinnedMessage }: { pinnedMessage: any }) {
               </div>
             </div>
             <div className="hidden sm:flex items-center gap-2 text-sm text-gray-500">
-              <span>{pinnedMessage.date}</span>
+              <span>{formatDate(pinnedMessage.date)}</span>
             </div>
           </div>
         </div>
@@ -53,7 +53,7 @@ export function BoardMessage({ pinnedMessage }: { pinnedMessage: any }) {
         <div className={`relative ${!isExpanded && needsExpansion ? 'max-h-[7em] overflow-hidden' : ''}`}>
           <div className="text-sm sm:text-base text-gray-900">
             <strong className="block mb-2">{pinnedMessage.title}</strong>
-            <div>{formatDate(pinnedMessage.date)}</div>
+            <div>{pinnedMessage.content}</div>
           </div>
           {!isExpanded && needsExpansion && (
             <div className="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-base-white to-transparent" />
