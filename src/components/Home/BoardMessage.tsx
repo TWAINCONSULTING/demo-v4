@@ -6,6 +6,16 @@ export function BoardMessage({ pinnedMessage }: { pinnedMessage: any }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [needsExpansion, setNeedsExpansion] = useState(false);
 
+// Helper function to format date
+const formatDate = (dateString: string): string => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('no', {
+    day: '2-digit',
+    month: '2-digit',
+    year: '2-digit'
+  }).replace(/\./g, '.');
+};
+
   if (!pinnedMessage) {
     return <div>Loading...</div>; // Show loading state if the pinned message is not yet available
   }
