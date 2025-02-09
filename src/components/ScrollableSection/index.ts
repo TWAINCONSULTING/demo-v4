@@ -1,0 +1,1 @@
+export { MinBoligScroll } from './MinBoligScroll';
