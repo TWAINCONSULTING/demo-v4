@@ -6,14 +6,13 @@ export function BoardMessage({ pinnedMessage }: { pinnedMessage: any }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [needsExpansion, setNeedsExpansion] = useState(false);
 
-// Helper function to format date
-const formatDate = (dateString: string): string => {
+  const formatDate = (dateString: string): string => {
   const date = new Date(dateString);
   return date.toLocaleDateString('no', {
     day: '2-digit',
     month: '2-digit',
-    year: '2-digit'
-  }).replace(/\./g, '.');
+    year: '2-digit',
+  });
 };
 
   if (!pinnedMessage) {
@@ -54,7 +53,7 @@ const formatDate = (dateString: string): string => {
         <div className={`relative ${!isExpanded && needsExpansion ? 'max-h-[7em] overflow-hidden' : ''}`}>
           <div className="text-sm sm:text-base text-gray-900">
             <strong className="block mb-2">{pinnedMessage.title}</strong>
-            <div>{pinnedMessage.content}</div>
+            <div>{formatDate(pinnedMessage.date)}</div>
           </div>
           {!isExpanded && needsExpansion && (
             <div className="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-base-white to-transparent" />
@@ -63,7 +62,7 @@ const formatDate = (dateString: string): string => {
 
         <div className="flex sm:hidden justify-end mt-2">
           <div className="text-[10px] text-gray-500">
-            {pinnedMessage.date}
+            {formatDate}
           </div>
         </div>
       </div>
