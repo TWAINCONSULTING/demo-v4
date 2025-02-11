@@ -30,7 +30,7 @@ export function NewFeatureDialog({ onClose, onSubmit }: NewFeatureDialogProps) {
   return (
     <div className="fixed inset-0 bg-black/20 backdrop-blur-sm flex items-center justify-center p-4 z-50">
       <div className="bg-white rounded-xl shadow-xl max-w-lg w-full ">
-        <div className="flex items-center justify-between p-4 sm:border-b sm:inline hidden">
+        <div className="items-center justify-between p-4 sm:border-b sm:flex hidden">
           <h2 className="text-lg font-semibold">Send inn forslag</h2>
           <button
             onClick={onClose}
